@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,7 +18,8 @@ public class Server {
 		ServerSocket serverSocket = null;
 		try {
 			serverSocket = new ServerSocket(PORT);
-			System.out.println("server ip:"+serverSocket.getInetAddress().getLocalHost().getHostAddress());
+			serverSocket.getInetAddress();
+			System.out.println("server ip:"+InetAddress.getLocalHost().getHostAddress());
 			while (true) {
 				Socket client = serverSocket.accept();
 				System.out.println("client ip:"+client.getInetAddress());
